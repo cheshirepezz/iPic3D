@@ -1,0 +1,88 @@
+01.INSTALL Xcode:
+
+ - install Xcode from Apple store
+ - activate Xcode -> https://www.ics.uci.edu/~pattis/common/handouts/macmingweclipse/allexperimental/macxcodecommandlinetools.html
+
+02.INSTALL BREW \W ITS TOOLS:
+
+$/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+ 
+$brew install cmake
+ 
+$brew install openmpi
+ 
+$brew install petsc 
+ 
+#Most recent hdf5 does not work with H5hut, do not try to install hdf5 from brew
+#brew install hdf5 
+ 
+$brew install wget
+
+03.DOWNLOADING IPIC3D:
+
+$mkdir ~/Sources
+$cd ~/Sources
+$git clone https://github.com/CmPA/iPic3D iPic3D-git
+
+04.COMPILING MPICH:
+
+$cd ~/Sources
+$wget http://www.mpich.org/static/downloads/3.2/mpich-3.2.tar.gz
+$tar xvf mpich-3.2.tar.gz
+$cd mpich-3.2
+$./configure --prefix=/usr/local/mpich/3.2 --enable-shared --with-pm=hydra --disable-fortran
+$make
+$make install
+ 
+05.COMPILING OLDER HDF5
+ 
+$wget https://support.hdfgroup.org/ftp/HDF5/releases/hdf5-1.8/hdf5-1.8.11/src/hdf5-1.8.11.tar.gz
+ 
+$tar xvf hdf5-1.8.11.tar.gz
+$cd hdf5-1.8.11
+$CC=mpicc CXX=mpicxx ./configure --prefix=$HOME/Lib/hdf5/1.8.11 --enable-parallel --enable-hl --enable-shared --enable-static
+$make 
+$make install
+ 
+-In .bash_profile put:
+ 
+#Setting HDF5 parallel
+export HDF5_DIR=$HOME/Lib/hdf5/1.8.11
+#export HDF5_ROOT=$HOME/Lib/hdf5/1.8.11
+export HDF5_HOME=$HOME/Lib/hdf5/1.8.11
+export PATH=$HOME/Lib/hdf5/1.8.11/include:$PATH
+export PATH=$HOME/Lib/hdf5/1.8.11/bin:$PATH
+export PATH=$HOME/Lib/hdf5/1.8.11:$PATH
+export LD_LIBRARY_PATH=$HOME/Lib/hdf5/1.8.11/lib:$LD_LIBRARY_PATH
+ 
+ 
+$source .bash_profile
+ 
+06.COMPILING H5HU5
+ 
+$cp H5hut-1.99.12.tar.bz2  from directory external in ECsim 
+ 
+$tar xvf H5hut-1.99.12.tar.bz2
+$cd H5hut-1.99.12
+ 
+$./configure --prefix=$HOME/Lib/H5hut/1.99.12 --enable-parallel --enable-large-indices --enable-shared --enable-static
+$make
+$make install
+ 
+ 
+In .bash_profile put
+ 
+export H5HUT_HOME=$HOME/Lib/H5hut/1.99.12
+export H5HUT_DIR=$HOME/Lib/H5hut/1.99.12
+export LD_LIBRARY_PATH=$HOME/Lib/H5hut/1.99.12/lib:$LD_LIBRARY_PATH
+ 
+$source .bash_profile
+ 
+At this point the system is ready rot compile in the usual way!
+
+New H5HUT
+brew install autoconf
+brew install automake
+./configure --prefix=$HOME/Lib/H5hut/latest --enable-parallel --enable-large-indices --enable-shared --enable-static
+make
+make install

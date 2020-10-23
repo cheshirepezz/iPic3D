@@ -1,0 +1,34 @@
+COMPILE iPic3D:
+*The goal is to create the executable called iPic3D in 'build' directory
+
+$cd ~/Source/iPic3d-git
+$mkdir build
+$cd build
+
+$cmake ..
+$ccmake ..
+
+#Configure the make file:
+type 'c' #configure
+put H5HUT_OUTPUT ON (press enter on it)
+type 'c'
+put H5HUT_HOME users/home/Lib/hdf5/1.8.11
+type 'c'
+type 'g' #generate
+make
+
+
+RUN THE SIMULATION:
+
+$cd ~/Source
+$mkdir gem_challenge #name of the project we want to run
+$cd gem_challenge 
+$mkdir data #All the data will be saved in this folder
+
+#make sure to have the .inp file in 'gem_challenge' (where there are the parameters of the simulartion)
+$mpiexec -n 1 /Users/luca_pezzini/ECsim/iPic3D-git/build/iPic3D Pucci_Prace_3D.inp
+
+
+DOWNLOAD HDFview 
+*to open the .h5 file in the data folder
+->https://support.hdfgroup.org/products/java/release/download.html
