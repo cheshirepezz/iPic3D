@@ -27,13 +27,15 @@ mkdir -p applications/cmake/3.14.4
 ```
 
 Now compile mpich, hdf5, H5hut and cmake following these instructions in this correct order:
-- mpich (mpi distribution){https://www.mpich.org/downloads/}
+### mpich (mpi distribution)https://www.mpich.org/downloads/
 1) download mpich-3.2.1 (usually in the Downloads folder)
 2) untar the folder (in the Downloads folder from the terminal type: "tar -xvf <mpich_folder_name>")
 ```
 cd <mpich_folder_name>"
 ./configure --prefix=<path_of_the_folder_created_at_point_e> --enable-static CC=gcc CXX=g++ --disable-fortran
-#(the path_of_the_folder_created_at_point_e should be somethiing like ~/prod/opt/compilers/mpich/3.2.1)
+```
+the path_of_the_folder_created_at_point_e should be somethiing like ~/prod/opt/compilers/mpich/3.2.1
+```
 make
 make install
 ```
