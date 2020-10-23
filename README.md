@@ -10,12 +10,12 @@ Please find the instructions to compile
 Things between "..." are instructions to type in the terminal (without " "). You have to substitute things between <...> with your path (e.g., the whole address of the folder; this can be found in the terminal typing "pwd" from the folder).
 Before doing anything, create mpich, hdf5 and H5hut directories in the folder prod/opt, following these instructions:
 
-a) open terminal
-b) type "cd ~/prod/opt"
-e) type "mkdir -p compilers/mpich/3.2.1"
-f) type "mkdir -p libraries/hdf5/1.8.12/mpich-3.2.1"
-g) type "mkdir -p libraries/H5hut/1.99.13/hdf5-1.8.12/mpich-3.2.1"
-h) type "mkdir -p applications/cmake/3.14.4"
+* open terminal (a)
+* type "cd ~/prod/opt" (b)
+* type "mkdir -p compilers/mpich/3.2.1"(e)
+* type "mkdir -p libraries/hdf5/1.8.12/mpich-3.2.1" (f)
+* type "mkdir -p libraries/H5hut/1.99.13/hdf5-1.8.12/mpich-3.2.1" (g)
+* type "mkdir -p applications/cmake/3.14.4" (h)
 
 Now compile mpich, hdf5, H5hut and cmake following these instructions in this correct order:
 
