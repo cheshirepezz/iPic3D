@@ -3,9 +3,9 @@
 Particle-in-Cell code using the implicit moment method.
 
 Please find the instructions to compile 
-    * mpich
-    * hdf5
-    * H5hut
+* mpich
+* hdf5
+* H5hut
     
 Things between "..." are instructions to type in the terminal (without " "). You have to substitute things between <...> with your path (e.g., the whole address of the folder; this can be found in the terminal typing "pwd" from the folder).
 Before doing anything, create mpich, hdf5 and H5hut directories in the folder prod/opt, following these instructions:
